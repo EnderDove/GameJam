@@ -33,6 +33,7 @@ namespace Game
 
         private void Update()
         {
+            inputHandler.UpdateInputValues();
             playerMovement.HandleMovement(inputHandler.MovementInput, Time.deltaTime);
         }
     }
