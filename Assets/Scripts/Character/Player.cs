@@ -11,7 +11,7 @@ namespace Game
     {
         public static Player PlayerInstance;
 
-        [SerializeField] private PlayerState playerState;
+        [SerializeField] public PlayerState playerState;
         private InputHandler inputHandler;
         private PlayerAction playerAction;
         private PlayerMovement playerMovement;

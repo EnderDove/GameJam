@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   playerMovementSpeed: 5
+  runMaxSpeed: 10
+  runAccelAmount: 1.2
+  runDeccelAmount: 0.8
   jumpCurveY:
     serializedVersion: 2
     m_Curve:
