@@ -50,19 +50,25 @@ namespace Game
         {
             float _time = 0;
             float _endTime = Player.PlayerInstance.playerState.jumpForceCurveY.keys[^1].time;
-            Vector2 force = Vector2.zero;
+            Vector2 pos = Vector2.zero;
+            float startY = pos.y;
             while (_time <= _endTime)
             {
-                force.y = Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier;
-                playerBody.AddForce(force, ForceMode2D.Impulse);
+                pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time-Time.fixedDeltaTime);
+                playerBody.position += pos;
                 _time += Time.fixedDeltaTime * Player.PlayerInstance.playerState.curveTimeMultiplier;
                 yield return new WaitForFixedUpdate();
             }
         }
 
+        private float GetValueFromCurve(float _time)
+        {
+            return Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier * Player.PlayerInstance.playerState.curveTimeMultiplier;
+        }
+
         private IEnumerator ResetCanJumpBool()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1);
             canJump = true;
         }
 
