@@ -15,6 +15,9 @@ namespace Game
         public bool JumpInput => jumpInput;
         private bool jumpInput;
 
+        public bool AttackInput => attackInput;
+        private bool attackInput;
+
         private void OnEnable()
         {
             playerInput ??= new PlayerInput();
@@ -30,6 +33,8 @@ namespace Game
         public void UpdateInputValues()
         {
             jumpInput = playerInput.Movement.Jump.phase == InputActionPhase.Performed;
+            attackInput = playerInput.Actions.Attack.phase == InputActionPhase.Performed;
+
         }
     }
 }

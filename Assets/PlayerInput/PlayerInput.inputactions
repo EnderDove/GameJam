@@ -137,17 +137,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ce6f3203-9359-4374-a17e-7e808040dc5c",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ce3228bb-80de-4d55-9076-ce3cb54fa7a2",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -167,6 +156,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "37e091f1-5759-49eb-9118-fdfa5f740107",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "15e3e86c-f4ad-4f1f-89d8-9cf6ffce0fbe",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -193,6 +191,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a968ab0-a54e-4af1-8fe2-398064709128",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

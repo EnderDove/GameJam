@@ -161,17 +161,6 @@ namespace Game
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ce6f3203-9359-4374-a17e-7e808040dc5c"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ce3228bb-80de-4d55-9076-ce3cb54fa7a2"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -191,6 +180,15 @@ namespace Game
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""37e091f1-5759-49eb-9118-fdfa5f740107"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""15e3e86c-f4ad-4f1f-89d8-9cf6ffce0fbe"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -219,6 +217,17 @@ namespace Game
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a968ab0-a54e-4af1-8fe2-398064709128"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -232,6 +241,7 @@ namespace Game
             // Actions
             m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
             m_Actions_Interact = m_Actions.FindAction("Interact", throwIfNotFound: true);
+            m_Actions_Attack = m_Actions.FindAction("Attack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -348,11 +358,13 @@ namespace Game
         private readonly InputActionMap m_Actions;
         private List<IActionsActions> m_ActionsActionsCallbackInterfaces = new List<IActionsActions>();
         private readonly InputAction m_Actions_Interact;
+        private readonly InputAction m_Actions_Attack;
         public struct ActionsActions
         {
             private @PlayerInput m_Wrapper;
             public ActionsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Interact => m_Wrapper.m_Actions_Interact;
+            public InputAction @Attack => m_Wrapper.m_Actions_Attack;
             public InputActionMap Get() { return m_Wrapper.m_Actions; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -365,6 +377,9 @@ namespace Game
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
 
             private void UnregisterCallbacks(IActionsActions instance)
@@ -372,6 +387,9 @@ namespace Game
                 @Interact.started -= instance.OnInteract;
                 @Interact.performed -= instance.OnInteract;
                 @Interact.canceled -= instance.OnInteract;
+                @Attack.started -= instance.OnAttack;
+                @Attack.performed -= instance.OnAttack;
+                @Attack.canceled -= instance.OnAttack;
             }
 
             public void RemoveCallbacks(IActionsActions instance)
@@ -397,6 +415,7 @@ namespace Game
         public interface IActionsActions
         {
             void OnInteract(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
         }
     }
 }
