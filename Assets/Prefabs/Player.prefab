@@ -228,7 +228,7 @@ MonoBehaviour:
   attackRange: 0.9
   WhoIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   attackPoint: {fileID: 7132360300519883414}
 --- !u!114 &7836425110275572847
 MonoBehaviour:
@@ -243,6 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundChecker: {fileID: 5920163865790816202}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &31389872678064142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a31dfd14f181ce4c99409d07d0342c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerState: {fileID: 11400000, guid: 5e9b6c0c368156c4793d5e41b9c7ef3f, type: 2}
+  playerState: {fileID: 11400000, guid: 539ca3c0bcce65c4fb0ad52610513795, type: 2}
 --- !u!1 &5920163865790816202
 GameObject:
   m_ObjectHideFlags: 0

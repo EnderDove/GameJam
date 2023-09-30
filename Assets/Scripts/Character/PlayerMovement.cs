@@ -7,7 +7,6 @@ namespace Game
     public class PlayerMovement : MonoBehaviour
     {
         private bool canJump = true;
-        private bool onAir = false;
 
         Rigidbody2D playerBody;
         [SerializeField] private GameObject groundChecker;
@@ -46,7 +45,7 @@ namespace Game
 
             StartCoroutine(Jump());
             canJump = false;
-            onAir = true;
+            StartCoroutine(ResetCanJumpBool());
         }
 
         private IEnumerator Jump()
@@ -60,26 +59,7 @@ namespace Game
                 pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time - Time.fixedDeltaTime);
                 playerBody.position += pos;
                 _time += Time.fixedDeltaTime * Player.PlayerInstance.playerState.curveTimeMultiplier;
-                canJump = false;
                 yield return new WaitForFixedUpdate();
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (CheckGrounded())
-            {
-                onAir = false;
-                canJump = true;
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (CheckGrounded())
-            {
-                onAir = true;
-                canJump = false;
             }
         }
 
@@ -88,11 +68,23 @@ namespace Game
             return Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier * Player.PlayerInstance.playerState.curveTimeMultiplier;
         }
 
-        Collider2D[] ground;
+        private IEnumerator ResetCanJumpBool()
+        {
+            yield return new WaitForSeconds(1);
+            canJump = true;
+        }
+
+        Collider2D[] grounds;
         private bool CheckGrounded()
         {
-            ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
-            return ground != null;
+            Debug.Log($"На земле чи нет?");
+            grounds = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
+            foreach (var ground in grounds)
+            {
+                Debug.Log($"{ground.tag}");
+                return true;
+            }
+            return false;
         }
 
         private void OnDrawGizmos()
