@@ -433,7 +433,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5619109652397905417, guid: dadc31dd89cc9a34b9bfb9e75e18d785, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7300006
+      value: -1.7300005
       objectReference: {fileID: 0}
     - target: {fileID: 5619109652397905417, guid: dadc31dd89cc9a34b9bfb9e75e18d785, type: 3}
       propertyPath: m_LocalPosition.y
@@ -496,6 +496,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3077474922861138982, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 11400000, guid: 539ca3c0bcce65c4fb0ad52610513795, type: 2}
     - target: {fileID: 5233991773579703299, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
       propertyPath: WhoIsEnemy.m_Bits
       value: 8
@@ -559,7 +563,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9157778606762464247, guid: ad41a6b35a0267941a93cadd8024c593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7300006
+      value: -1.7300005
       objectReference: {fileID: 0}
     - target: {fileID: 9157778606762464247, guid: ad41a6b35a0267941a93cadd8024c593, type: 3}
       propertyPath: m_LocalPosition.y

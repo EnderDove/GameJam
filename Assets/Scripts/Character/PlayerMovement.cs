@@ -7,6 +7,7 @@ namespace Game
     public class PlayerMovement : MonoBehaviour
     {
         private bool canJump = true;
+        private bool onAir = false;
 
         Rigidbody2D playerBody;
         [SerializeField] private GameObject groundChecker;
@@ -44,7 +45,7 @@ namespace Game
 
             StartCoroutine(Jump());
             canJump = false;
-            StartCoroutine(ResetCanJumpBool());
+            onAir = true;
         }
 
         private IEnumerator Jump()
@@ -58,19 +59,32 @@ namespace Game
                 pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time - Time.fixedDeltaTime);
                 playerBody.position += pos;
                 _time += Time.fixedDeltaTime * Player.PlayerInstance.playerState.curveTimeMultiplier;
+                canJump = false;
                 yield return new WaitForFixedUpdate();
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (CheckGrounded())
+            {
+                onAir = false;
+                canJump = true;
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (CheckGrounded())
+            {
+                onAir = true;
+                canJump = false;
             }
         }
 
         private float GetValueFromCurve(float _time)
         {
             return Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier * Player.PlayerInstance.playerState.curveTimeMultiplier;
-        }
-
-        private IEnumerator ResetCanJumpBool()
-        {
-            yield return new WaitForSeconds(1);
-            canJump = true;
         }
 
         Collider2D[] ground;
