@@ -44,6 +44,11 @@ namespace Game
                 return;
             }
 
+            if (!CheckGrounded())
+            {
+                return;
+            }
+
             StartCoroutine(Jump());
             canJump = false;
             onAir = true;
@@ -74,15 +79,6 @@ namespace Game
             }
         }
 
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (CheckGrounded())
-            {
-                onAir = true;
-                canJump = false;
-            }
-        }
-
         private float GetValueFromCurve(float _time)
         {
             return Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier * Player.PlayerInstance.playerState.curveTimeMultiplier;
@@ -92,6 +88,7 @@ namespace Game
         private bool CheckGrounded()
         {
             ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
+            Debug.Log(ground != null);
             return ground != null;
         }
 
