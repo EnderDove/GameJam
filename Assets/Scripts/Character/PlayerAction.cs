@@ -12,20 +12,38 @@ namespace Game
         #region Attack
         private float attackRate = 2.5f;
         private float nextAttackTime = 0f;
-        [SerializeField] [Range (0f, 1f)] private float attackRange = 0.55f;
+        [SerializeField][Range(0f, 1f)] private float attackRange = 0.55f;
 
         [SerializeField] private LayerMask WhoIsEnemy;
         [SerializeField] private GameObject attackPoint;
+        
 
+        Collider2D[] enemies;
+        public void MeleeAttack()
+        {
+            enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, WhoIsEnemy);
+
+            foreach (var enemy in enemies)
+            {
+                Debug.Log($" {enemy.tag}");
+            }
+        }
 
         #endregion
 
         private void Update()
         {
-            if(Time.time >= nextAttackTime) {
-                //if (Player.PlayerInstance.inputHandler.)
+            if (Time.time >= nextAttackTime)
+            {
+                if (Player.PlayerInstance.inputHandler.AttackInput)
+                {
+                    MeleeAttack();
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
             }
         }
+
+        
 
 
         #region Hacking

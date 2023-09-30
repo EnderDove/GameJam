@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &397530569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7132360300519883414, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
-  m_PrefabInstance: {fileID: 2666539210169148517}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1429433507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7562765295450717376, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
@@ -364,26 +359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 845485531121291113, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5233991773579703299, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 397530569}
-    - target: {fileID: 5233991773579703299, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
-      propertyPath: attackRange
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5712199577352926788, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5920163865790816202, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7562765295450717376, guid: 8fb9ec94b59a9db48913aaa73954dac8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.73

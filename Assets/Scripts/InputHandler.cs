@@ -9,7 +9,7 @@ namespace Game
         private PlayerInput playerInput;
 
         public Vector2 MovementInput => movementInput;
-        
+
         private Vector2 movementInput;
 
         public bool JumpInput => jumpInput;

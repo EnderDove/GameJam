@@ -9,7 +9,8 @@ namespace Game
         private bool canJump = true;
 
         Rigidbody2D playerBody;
- 
+        [SerializeField] private GameObject groundChecker;
+        private float onGroundRadius = 0.25f;
 
         private void Awake()
         {
@@ -54,7 +55,7 @@ namespace Game
             float startY = pos.y;
             while (_time <= _endTime)
             {
-                pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time-Time.fixedDeltaTime);
+                pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time - Time.fixedDeltaTime);
                 playerBody.position += pos;
                 _time += Time.fixedDeltaTime * Player.PlayerInstance.playerState.curveTimeMultiplier;
                 yield return new WaitForFixedUpdate();
@@ -72,9 +73,20 @@ namespace Game
             canJump = true;
         }
 
+        Collider2D[] ground;
         private bool CheckGrounded()
         {
-            return true;
+            ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius);
+
+            return ground != null;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (groundChecker == null)
+                return;
+
+            Gizmos.DrawWireSphere(groundChecker.transform.position, onGroundRadius);
         }
     }
 }

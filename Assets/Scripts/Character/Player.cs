@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Game
 {
-    [RequireComponent (typeof(InputHandler))]
-    [RequireComponent (typeof(PlayerAction))]
-    [RequireComponent (typeof(PlayerMovement))]
-    [RequireComponent (typeof(AnimatorHandler))]
+    [RequireComponent(typeof(InputHandler))]
+    [RequireComponent(typeof(PlayerAction))]
+    [RequireComponent(typeof(PlayerMovement))]
+    [RequireComponent(typeof(AnimatorHandler))]
     public class Player : MonoBehaviour
     {
         public static Player PlayerInstance;
