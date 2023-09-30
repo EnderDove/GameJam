@@ -13,3 +13,36 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   playerMovementSpeed: 5
+  jumpCurveY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.000000004435444
+      value: 0.0036660875
+      inSlope: 1.1781539
+      outSlope: 1.1781539
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.75533414
+      value: 0.89356595
+      inSlope: -1.7447667
+      outSlope: -1.7447667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.94598526
+      value: 0.0036660875
+      inSlope: -4.6676874
+      outSlope: -4.6676874
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -7,5 +7,7 @@ namespace Game
     public class PlayerState : ScriptableObject
     {
         [SerializeField] private float playerMovementSpeed;
+        [SerializeField] private AnimationCurve jumpCurveY;
+
     }
 }
