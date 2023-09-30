@@ -9,7 +9,10 @@ namespace Game
 
         public void HandleMovement(Vector2 movementInput, float deltaTime)
         {
-
+            if(movementInput.x > 0)
+                Debug.Log("moving right");
+            else if (movementInput.x < 0)
+                Debug.Log("moving left");
         }
 
         public void HandleJumping(bool jumpingInput)

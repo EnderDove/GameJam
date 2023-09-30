@@ -30,5 +30,10 @@ namespace Game
             animatorHandler = GetComponent<AnimatorHandler>();
             animatorHandler.StartAction();
         }
+
+        private void Update()
+        {
+            
+        }
     }
 }
