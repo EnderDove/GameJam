@@ -11,6 +11,9 @@ namespace Game
         public Vector2 MovementInput => movementInput;
         private Vector2 movementInput;
 
+        public bool JumpInput => jumpInput;
+        private bool jumpInput;
+
         private void OnEnable()
         {
             playerInput ??= new PlayerInput();
@@ -21,6 +24,11 @@ namespace Game
         private void OnDisable()
         {
             playerInput.Disable();
+        }
+
+        public void UpdateInputValues()
+        {
+            jumpInput = playerInput.Movement.Jump.phase == InputActionPhase.Performed;
         }
     }
 }

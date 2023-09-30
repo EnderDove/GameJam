@@ -1,8 +1,11 @@
 using UnityEngine;
 
 
-[CreateAssetMenu]
-public class PlayerState : ScriptableObject
+namespace Game
 {
-    [SerializeField] private float playerMovementSpeed;
+    [CreateAssetMenu]
+    public class PlayerState : ScriptableObject
+    {
+        [SerializeField] private float playerMovementSpeed;
+    }
 }

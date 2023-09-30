@@ -1,7 +1,10 @@
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
+namespace Game
 {
+    public class PlayerMovement : MonoBehaviour
+    {
     
+    }
 }
