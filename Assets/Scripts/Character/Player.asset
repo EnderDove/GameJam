@@ -16,36 +16,47 @@ MonoBehaviour:
   runMaxSpeed: 10
   runAccelAmount: 1.2
   runDeccelAmount: 0.8
-  jumpCurveY:
+  jumpForceCurveY:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.000000004435444
-      value: 0.0036660875
-      inSlope: 1.1781539
-      outSlope: 1.1781539
-      tangentMode: 34
+      time: 0
+      value: 0.84835625
+      inSlope: -6.7265444
+      outSlope: -6.7265444
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.096806
     - serializedVersion: 3
-      time: 0.75533414
-      value: 0.89356595
-      inSlope: -1.7447667
-      outSlope: -1.7447667
-      tangentMode: 34
+      time: 0.21717346
+      value: 0.04323968
+      inSlope: -1.0071368
+      outSlope: -1.0071368
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.4374999
+      outWeight: 0.13779774
     - serializedVersion: 3
-      time: 0.94598526
-      value: 0.0036660875
-      inSlope: -4.6676874
-      outSlope: -4.6676874
-      tangentMode: 34
+      time: 0.3432937
+      value: 0.0030797645
+      inSlope: -0.040572554
+      outSlope: -0.040572554
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 1
+      outWeight: 0.2789176
+    - serializedVersion: 3
+      time: 0.7713766
+      value: -0.6823976
+      inSlope: -3.4173267
+      outSlope: -3.4173267
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1018965
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  jumpForceMultiplier: 15
+  curveTimeMultiplier: 6

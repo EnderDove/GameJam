@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -5,7 +6,7 @@ namespace Game
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private bool canJump;
+        private bool canJump = true;
 
         Rigidbody2D playerBody;
  
@@ -34,6 +35,35 @@ namespace Game
             {
                 return;
             }
+
+            if (!jumpingInput)
+            {
+                return;
+            }
+
+            StartCoroutine(Jump());
+            canJump = false;
+            StartCoroutine(ResetCanJumpBool());
+        }
+
+        private IEnumerator Jump()
+        {
+            float _time = 0;
+            float _endTime = Player.PlayerInstance.playerState.jumpForceCurveY.keys[^1].time;
+            Vector2 force = Vector2.zero;
+            while (_time <= _endTime)
+            {
+                force.y = Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier;
+                playerBody.AddForce(force, ForceMode2D.Impulse);
+                _time += Time.fixedDeltaTime * Player.PlayerInstance.playerState.curveTimeMultiplier;
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
+        private IEnumerator ResetCanJumpBool()
+        {
+            yield return new WaitForSeconds(0.5f);
+            canJump = true;
         }
 
         private bool CheckGrounded()

@@ -14,7 +14,10 @@ namespace Game
         
         [Space(15)]
         [Header ("Jump")]
-        [SerializeField] private AnimationCurve jumpCurveY;
+        public AnimationCurve jumpForceCurveY;
+        public float jumpForceMultiplier = 5f;
+        [Tooltip("Для удобства создания кривой (ускорение идет на заданное значение)")]
+        public float curveTimeMultiplier = 10f;
 
     }
 }
