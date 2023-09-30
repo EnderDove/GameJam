@@ -21,11 +21,12 @@ namespace Game
         Collider2D[] enemies;
         public void MeleeAttack()
         {
+            Debug.Log("¿“¿ ”≈Ã ≈œ“");
             enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, WhoIsEnemy);
 
             foreach (var enemy in enemies)
             {
-                Debug.Log($" {enemy.tag}");
+                Debug.Log($"“˝„ ‚‡„‡: {enemy.tag}");
             }
         }
 

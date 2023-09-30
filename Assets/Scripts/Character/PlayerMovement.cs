@@ -77,7 +77,6 @@ namespace Game
         private bool CheckGrounded()
         {
             ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius);
-
             return ground != null;
         }
 
