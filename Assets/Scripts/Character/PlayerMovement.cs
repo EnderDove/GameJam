@@ -11,6 +11,7 @@ namespace Game
 
         Rigidbody2D playerBody;
         [SerializeField] private GameObject groundChecker;
+        [SerializeField] private LayerMask whatIsGround;
         private float onGroundRadius = 0.25f;
 
         private void Awake()
@@ -90,7 +91,7 @@ namespace Game
         Collider2D[] ground;
         private bool CheckGrounded()
         {
-            ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius);
+            ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
             return ground != null;
         }
 
