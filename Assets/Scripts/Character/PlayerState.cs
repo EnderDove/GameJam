@@ -19,5 +19,8 @@ namespace Game
         [Tooltip("Для удобства создания кривой (ускорение идет на заданное значение)")]
         public float curveTimeMultiplier = 10f;
 
+        [Space(15)]
+        [Header("Hacking")]
+        public AnimationCurve hackingProgression;
     }
 }

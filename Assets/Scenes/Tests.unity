@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1301399161}
+  IsHackable: 1
 --- !u!212 &448066455
 SpriteRenderer:
   m_ObjectHideFlags: 0

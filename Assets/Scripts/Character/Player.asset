@@ -38,16 +38,40 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.7357407
     - serializedVersion: 3
-      time: 0.30868492
-      value: 0.88029623
-      inSlope: -0.92027235
-      outSlope: -0.92027235
+      time: 0.2753521
+      value: 0.8048949
+      inSlope: -3.5535965
+      outSlope: -3.5535965
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.74013686
+      inWeight: 0.6690891
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpForceMultiplier: 2
   curveTimeMultiplier: 1
+  hackingProgression:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.06448297
+      outSlope: 0.06448297
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24289982
+    - serializedVersion: 3
+      time: 2.5
+      value: 1
+      inSlope: 0.74556327
+      outSlope: 0.74556327
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17717199
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

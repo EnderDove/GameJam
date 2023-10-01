@@ -48,11 +48,11 @@ namespace Game
 
 
         #region Hacking
-        private void Hack()
+        private void Hack(HackObject hackObject)
         {
             canHack = false;
-            //Hacking
-            StartCoroutine(CooldownHacking(10));
+            hackObject.StartHacking();
+            StartCoroutine(CooldownHacking(0.1f));
         }
 
         private IEnumerator CooldownHacking(float seconds)
@@ -64,14 +64,15 @@ namespace Game
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (!canHack)
-            {
                 return;
-            }
 
-            if (TryGetComponent(out HackObject hackObject))
-            {
-                hackObject.StartHacking();
-            }
+            if (collision.TryGetComponent(out HackObject hackObject))
+                Hack(hackObject);
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out HackObject hackObject))
+                hackObject.AbortHacking();
         }
         #endregion
 
