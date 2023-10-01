@@ -19,7 +19,7 @@ namespace Game
             playerBody = GetComponent<Rigidbody2D>();
         }
 
-        public void Run(Vector2 movementInput, float deltaTime)
+        public void HandleMovement(Vector2 movementInput, float deltaTime)
         {
             float targetSpeed = movementInput.x * Player.PlayerInstance.playerState.runMaxSpeed;
             targetSpeed = Mathf.Lerp(movementInput.x, targetSpeed, 1 / deltaTime);
