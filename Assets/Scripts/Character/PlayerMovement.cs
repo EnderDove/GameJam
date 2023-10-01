@@ -19,6 +19,7 @@ namespace Game
             playerBody = GetComponent<Rigidbody2D>();
         }
 
+        // Run
         public void HandleMovement(Vector2 movementInput, float deltaTime)
         {
             float targetSpeed = movementInput.x * Player.PlayerInstance.playerState.runMaxSpeed;
@@ -29,6 +30,7 @@ namespace Game
 
             float speedDif = targetSpeed - playerBody.velocity.x;
             float movement = speedDif * accelRate;
+            Player.PlayerInstance.animatorHandler.RunAnim(movement);
             playerBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
 
@@ -51,6 +53,7 @@ namespace Game
                 return;
             }
 
+            Player.PlayerInstance.animatorHandler.JumpAnim(canJump);
             StartCoroutine(Jump());
             canJump = false;
             onAir = true;
@@ -76,6 +79,7 @@ namespace Game
             if (CheckGrounded())
             {
                 onAir = false;
+                Player.PlayerInstance.animatorHandler.JumpAnim(onAir);
                 canJump = true;
             }
         }

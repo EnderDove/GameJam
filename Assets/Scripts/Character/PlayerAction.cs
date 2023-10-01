@@ -16,7 +16,7 @@ namespace Game
 
         [SerializeField] private LayerMask WhoIsEnemy;
         [SerializeField] private GameObject attackPoint;
-        
+
 
         Collider2D[] enemies;
         public void MeleeAttack()
@@ -24,6 +24,7 @@ namespace Game
             Debug.Log("¿“¿ ”≈Ã ≈œ“");
             enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, WhoIsEnemy);
 
+            Player.PlayerInstance.animatorHandler.AttackAnim();
             foreach (var enemy in enemies)
             {
                 Debug.Log($"“˝„ ‚‡„‡: {enemy.tag}");
@@ -44,7 +45,7 @@ namespace Game
             }
         }
 
-        
+
 
 
         #region Hacking

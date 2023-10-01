@@ -15,7 +15,7 @@ namespace Game
         public InputHandler inputHandler { get; private set; }
         private PlayerAction playerAction;
         private PlayerMovement playerMovement;
-        private AnimatorHandler animatorHandler;
+        public AnimatorHandler animatorHandler;
 
 
         private bool isFacingRight = true;
