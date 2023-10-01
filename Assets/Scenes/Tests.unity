@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1301399161}
+  fillImage: {fileID: 1096397800}
+  backroundImage: {fileID: 1711638575}
   IsHackable: 1
 --- !u!212 &448066455
 SpriteRenderer:
@@ -593,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38113207, g: 0.48676342, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1107,7 +1109,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5619109652397905417, guid: dadc31dd89cc9a34b9bfb9e75e18d785, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7300006
+      value: -1.7300005
       objectReference: {fileID: 0}
     - target: {fileID: 5619109652397905417, guid: dadc31dd89cc9a34b9bfb9e75e18d785, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1232,7 +1234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9157778606762464247, guid: ad41a6b35a0267941a93cadd8024c593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7300006
+      value: -1.7300005
       objectReference: {fileID: 0}
     - target: {fileID: 9157778606762464247, guid: ad41a6b35a0267941a93cadd8024c593, type: 3}
       propertyPath: m_LocalPosition.y

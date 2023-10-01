@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ namespace Game
     public class HackObject : MonoBehaviour
     {
         [SerializeField] Slider slider;
+        [SerializeField] Image fillImage;
+        [SerializeField] Image backroundImage;
         private Canvas canvas;
         public bool IsHackable = true;
 
@@ -31,9 +34,16 @@ namespace Game
             slider.value = 0;
         }
 
+        private void EndHacking()
+        {
+            Debug.Log("Hacked");
+            canvas.enabled = false;
+        }
+
         private IEnumerator Hack()
         {
             slider.value = 0;
+            fillImage.color = Color.red;
             while (!Player.PlayerInstance.inputHandler.InteractInput)
                 yield return null;
 
@@ -53,9 +63,32 @@ namespace Game
             if (slider.value == 1)
             {
                 IsHackable = false;
-                Debug.Log("Hacked");
-                //Hacked
+                StartCoroutine(ChangeColor());
             }
+        }
+
+        private IEnumerator ChangeColor()
+        {
+            while (fillImage.color.g <= 0.99f)
+            {
+                slider.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up);
+
+                fillImage.color = Color.Lerp(fillImage.color, Color.green, Time.fixedDeltaTime*10);
+                yield return new WaitForFixedUpdate();
+            }
+
+            backroundImage.color = new Color(0, 1, 0, 0);
+            yield return new WaitForSeconds(0.5f);
+
+            while (fillImage.color.a >= 0.01f)
+            {
+                slider.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up);
+
+                fillImage.color = Color.Lerp(fillImage.color, new Color(0,1,0,0), Time.fixedDeltaTime * 10);
+                yield return new WaitForFixedUpdate();
+            }
+
+            EndHacking();
         }
 
     }
