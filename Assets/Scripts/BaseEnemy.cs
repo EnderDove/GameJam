@@ -10,6 +10,7 @@ namespace Game
 
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Vector3 moveDir;
+        [SerializeField] private float moveSpeed = 3f;
         private float onGroundRadius = 0.25f;
         private bool isFacingRight = true;
 
@@ -21,7 +22,7 @@ namespace Game
                 Turn();
             }
 
-            transform.position += moveDir*Time.fixedDeltaTime;
+            transform.position += moveDir.normalized*Time.fixedDeltaTime*moveSpeed;
         }
 
 
@@ -57,11 +58,6 @@ namespace Game
                 return;
 
             Gizmos.DrawWireSphere(groundChecker.transform.position, onGroundRadius);
-
-            if (wallChecker == null)
-                return;
-
-            Gizmos.DrawWireSphere(wallChecker.transform.position, onGroundRadius);
         }
     }
 }
