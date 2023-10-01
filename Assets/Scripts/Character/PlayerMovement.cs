@@ -32,6 +32,7 @@ namespace Game
             playerBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
 
+
         public void HandleJumping(bool jumpingInput)
         {
             if (!canJump)
@@ -88,8 +89,7 @@ namespace Game
         private bool CheckGrounded()
         {
             ground = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
-            Debug.Log(ground != null);
-            return ground != null;
+            return ground.Length != 0;
         }
 
         private void OnDrawGizmos()

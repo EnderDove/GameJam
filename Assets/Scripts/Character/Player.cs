@@ -17,6 +17,10 @@ namespace Game
         private PlayerMovement playerMovement;
         private AnimatorHandler animatorHandler;
 
+
+        private bool isFacingRight = true;
+
+
         private void Awake()
         {
             PlayerInstance = PlayerInstance != null ? PlayerInstance : this;
@@ -34,8 +38,27 @@ namespace Game
         private void Update()
         {
             inputHandler.UpdateInputValues();
+            if (inputHandler.MovementInput.x != 0)
+            {
+                CheckFaceDirection(inputHandler.MovementInput.x > 0);
+            }
             playerMovement.HandleMovement(inputHandler.MovementInput, Time.deltaTime);
             playerMovement.HandleJumping(inputHandler.JumpInput);
         }
+
+        public void CheckFaceDirection(bool isMovingRight)
+        {
+            if (isMovingRight != isFacingRight)
+                Turn();
+        }
+
+        private void Turn()
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 scale = Player.PlayerInstance.transform.localScale;
+            scale.x *= -1;
+            Player.PlayerInstance.transform.localScale = scale;
+        }
+
     }
 }
