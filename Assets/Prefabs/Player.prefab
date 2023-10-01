@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 7836425110275572847}
   - component: {fileID: 31389872678064142}
   - component: {fileID: 3077474922861138982}
-  - component: {fileID: 6811918907385705804}
   - component: {fileID: 971264516089604772}
   m_Layer: 0
   m_Name: Player
@@ -274,21 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 539ca3c0bcce65c4fb0ad52610513795, type: 2}
---- !u!111 &6811918907385705804
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712199577352926788}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &971264516089604772
 Animator:
   serializedVersion: 5
@@ -438,8 +422,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.000049948692, y: 0.0012500286, z: 0}
-    m_Extent: {x: 3.5085502, y: 3.50485, z: 0}
+    m_Center: {x: 0.008400083, y: -0.00055003166, z: 0}
+    m_Extent: {x: 3.5008001, y: 3.50175, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
