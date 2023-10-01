@@ -13,6 +13,8 @@ namespace Game
             if (damage < 0)
                 return;
             healthValue -= damage;
+
+            Debug.Log(healthValue);
             if (healthValue < 0)
             {
                 healthValue = 0;
@@ -27,7 +29,7 @@ namespace Game
 
         private void Die()
         {
-            Debug.Log("Death");
+            gameObject.SetActive(false);
         }
 
         public abstract void Patrol();
