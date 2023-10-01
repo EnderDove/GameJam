@@ -42,6 +42,8 @@ namespace Game
             float _endTime = Player.PlayerInstance.playerState.hackingProgression.keys[^1].time;
             while (_time <= _endTime)
             {
+                slider.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up);
+
                 _time += Player.PlayerInstance.inputHandler.InteractInput ? Time.fixedDeltaTime : -Time.fixedDeltaTime / 5f;
                 float hackingValue = Player.PlayerInstance.playerState.hackingProgression.Evaluate(_time);
                 slider.value = hackingValue;
