@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bea5abfc35b884895197c2d9af6b95, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerMovementSpeed: 5
-  runMaxSpeed: 10
-  runAccelAmount: 1.2
+  playerMovementSpeed: 0
+  runMaxSpeed: 6
+  runAccelAmount: 1
   runDeccelAmount: 0.8
   jumpForceCurveY:
     serializedVersion: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpForceMultiplier: 2
+  jumpForceMultiplier: 1.2
   curveTimeMultiplier: 1
   hackingProgression:
     serializedVersion: 2

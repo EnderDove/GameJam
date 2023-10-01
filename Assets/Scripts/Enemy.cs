@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class Enemy : IDamagible
+    public abstract class Enemy : MonoBehaviour, IDamagible
     {
         public float HealthValue => healthValue;
         [SerializeField] private float healthValue;
