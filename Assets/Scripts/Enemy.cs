@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public abstract class Enemy : MonoBehaviour, IDamagible
+    public abstract class Enemy : IDamagible
     {
         public float HealthValue => healthValue;
         [SerializeField] private float healthValue;
@@ -24,6 +24,8 @@ namespace Game
         {
             Debug.Log("Death");
         }
+
+        public abstract void Patrol();
     }
 }
 
