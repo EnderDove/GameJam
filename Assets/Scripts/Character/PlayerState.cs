@@ -20,7 +20,7 @@ namespace Game
         public float curveTimeMultiplier = 10f;
 
         [Space(15)]
-        [Header("Hacking")]
+        [Header("Hacking")] 
         public AnimationCurve hackingProgression;
     }
 }
