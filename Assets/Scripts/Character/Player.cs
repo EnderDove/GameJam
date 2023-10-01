@@ -34,7 +34,7 @@ namespace Game
         private void Update()
         {
             inputHandler.UpdateInputValues();
-            playerMovement.HandleMovement(inputHandler.MovementInput, Time.deltaTime);
+            playerMovement.Run(inputHandler.MovementInput, Time.deltaTime);
             playerMovement.HandleJumping(inputHandler.JumpInput);
         }
     }

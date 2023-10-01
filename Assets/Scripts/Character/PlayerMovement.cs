@@ -19,7 +19,7 @@ namespace Game
             playerBody = GetComponent<Rigidbody2D>();
         }
 
-        public void HandleMovement(Vector2 movementInput, float deltaTime)
+        public void Run(Vector2 movementInput, float deltaTime)
         {
             float targetSpeed = movementInput.x * Player.PlayerInstance.playerState.runMaxSpeed;
             targetSpeed = Mathf.Lerp(movementInput.x, targetSpeed, 1 / deltaTime);
@@ -32,6 +32,8 @@ namespace Game
             playerBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
 
+
+        #region Jumping
         public void HandleJumping(bool jumpingInput)
         {
             if (!canJump)
@@ -83,7 +85,9 @@ namespace Game
         {
             return Player.PlayerInstance.playerState.jumpForceCurveY.Evaluate(_time) * Player.PlayerInstance.playerState.jumpForceMultiplier * Player.PlayerInstance.playerState.curveTimeMultiplier;
         }
+        #endregion
 
+        #region GroundCheking
         Collider2D[] ground;
         private bool CheckGrounded()
         {
@@ -99,5 +103,6 @@ namespace Game
 
             Gizmos.DrawWireSphere(groundChecker.transform.position, onGroundRadius);
         }
+        #endregion
     }
 }
