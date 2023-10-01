@@ -9,11 +9,13 @@ namespace Game
         private PlayerInput playerInput;
 
         public Vector2 MovementInput => movementInput;
-
         private Vector2 movementInput;
 
         public bool JumpInput => jumpInput;
         private bool jumpInput;
+
+        public bool InteractInput => interactInput;
+        private bool interactInput;
 
         public bool AttackInput => attackInput;
         private bool attackInput;
@@ -34,7 +36,7 @@ namespace Game
         {
             jumpInput = playerInput.Movement.Jump.phase == InputActionPhase.Performed;
             attackInput = playerInput.Actions.Attack.phase == InputActionPhase.Performed;
-
+            interactInput = playerInput.Actions.Interact.phase == InputActionPhase.Performed;
         }
     }
 }

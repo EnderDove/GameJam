@@ -60,6 +60,19 @@ namespace Game
             yield return new WaitForSeconds(seconds);
             canHack = true;
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!canHack)
+            {
+                return;
+            }
+
+            if (TryGetComponent(out HackObject hackObject))
+            {
+                hackObject.StartHacking();
+            }
+        }
         #endregion
 
         private void OnDrawGizmos()
