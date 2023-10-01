@@ -55,9 +55,9 @@ namespace Game
         private void Turn()
         {
             isFacingRight = !isFacingRight;
-            Vector3 scale = Player.PlayerInstance.transform.localScale;
+            Vector3 scale = transform.localScale;
             scale.x *= -1;
-            Player.PlayerInstance.transform.localScale = scale;
+            transform.localScale = scale;
         }
 
     }

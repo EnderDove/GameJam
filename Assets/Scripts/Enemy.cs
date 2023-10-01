@@ -20,6 +20,11 @@ namespace Game
             }
         }
 
+        private void FixedUpdate()
+        {
+            Patrol();
+        }
+
         private void Die()
         {
             Debug.Log("Death");
