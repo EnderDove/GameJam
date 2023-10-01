@@ -1518,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2114593316446940614, guid: f45c7e8af1c3aa54aae39e54fb9bd02c, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2192,6 +2196,14 @@ PrefabInstance:
     - target: {fileID: 1963537304111356540, guid: f45c7e8af1c3aa54aae39e54fb9bd02c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114593316446940614, guid: f45c7e8af1c3aa54aae39e54fb9bd02c, type: 3}
+      propertyPath: whatIsWall.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114593316446940614, guid: f45c7e8af1c3aa54aae39e54fb9bd02c, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

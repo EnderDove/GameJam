@@ -7,40 +7,37 @@ namespace Game
     public class BaseEnemy : Enemy
     {
         [SerializeField] private GameObject groundChecker;
+        [SerializeField] private GameObject wallChecker;
 
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Vector3 moveDir;
         [SerializeField] private float moveSpeed = 3f;
-        private float onGroundRadius = 0.25f;
+        private float checkRadius = 0.25f;
         private bool isFacingRight = true;
 
 
         public override void Patrol()
         {
-            if (!CheckGrounded())
+            Debug.Log(CheckGround());
+            if (!CheckGround() || CheckWall())
             {
                 Turn();
             }
 
-            transform.position += moveDir.normalized*Time.fixedDeltaTime*moveSpeed;
+            transform.position += moveSpeed * Time.fixedDeltaTime * moveDir.normalized;
         }
 
 
-        Collider2D[] obstacles;
-        private bool CheckGrounded()
+        private bool CheckGround()
         {
-            obstacles = Physics2D.OverlapCircleAll(groundChecker.transform.position, onGroundRadius, whatIsGround);
+            Collider2D[] obstacles = Physics2D.OverlapCircleAll(groundChecker.transform.position, checkRadius, whatIsGround);
+            return obstacles.Length != 0;
+        }
 
-            foreach (Collider2D col in obstacles)
-            {
-                if (col.gameObject.layer == 8)
-                    return false;
-
-                if (col.gameObject.layer == 7)
-                    return true;
-            }
-
-            return false;
+        private bool CheckWall()
+        {
+            Collider2D[] obstacles = Physics2D.OverlapCircleAll(wallChecker.transform.position, checkRadius, whatIsGround);
+            return obstacles.Length != 0;
         }
 
         private void Turn()
@@ -57,7 +54,12 @@ namespace Game
             if (groundChecker == null)
                 return;
 
-            Gizmos.DrawWireSphere(groundChecker.transform.position, onGroundRadius);
+            Gizmos.DrawWireSphere(groundChecker.transform.position, checkRadius);
+
+            if (wallChecker == null)
+                return;
+
+            Gizmos.DrawWireSphere(wallChecker.transform.position, checkRadius);
         }
     }
 }
