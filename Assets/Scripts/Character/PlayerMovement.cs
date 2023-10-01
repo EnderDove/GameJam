@@ -61,7 +61,6 @@ namespace Game
             float _time = 0;
             float _endTime = Player.PlayerInstance.playerState.jumpForceCurveY.keys[^1].time;
             Vector2 pos = Vector2.zero;
-            float startY = pos.y;
             while (_time <= _endTime)
             {
                 pos.y = GetValueFromCurve(_time) - GetValueFromCurve(_time - Time.fixedDeltaTime);
