@@ -8,11 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 4952730443236110440}
   - component: {fileID: 2286378529082532620}
   - component: {fileID: 664765242191762312}
   - component: {fileID: 9144347673896099857}
   - component: {fileID: 8143014733391925498}
+=======
+  - component: {fileID: 2570981682583545904}
+  - component: {fileID: 5878066809204239435}
+  - component: {fileID: 7814213912874361776}
+  - component: {fileID: 3613151002859408394}
+  - component: {fileID: 1800915110435006804}
+>>>>>>> Stashed changes
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -166,20 +174,30 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+<<<<<<< Updated upstream
   m_Constraints: 7
 --- !u!114 &8143014733391925498
+=======
+  m_Constraints: 0
+--- !u!114 &1800915110435006804
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 3970823369921673156}
+=======
+  m_GameObject: {fileID: 87059429964223444}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221aaca37c542b0418d770922bfa6b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: 100
+<<<<<<< Updated upstream
   groundChecker: {fileID: 8054462553594837317}
   wallChecker: {fileID: 0}
   whatIsGround:
@@ -187,6 +205,14 @@ MonoBehaviour:
     m_Bits: 384
   moveDir: {x: 1, y: 0, z: 0}
 --- !u!1 &8054462553594837317
+=======
+  groundChecker: {fileID: 8973885288613961245}
+  wallChecker: {fileID: 3408639623383832815}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!1 &3408639623383832815
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
