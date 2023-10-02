@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 namespace Game
@@ -18,13 +17,13 @@ namespace Game
         private PlayerMovement playerMovement;
         public AnimatorHandler animatorHandler;
 
+
         private bool isFacingRight = true;
 
 
         private void Awake()
         {
             PlayerInstance = PlayerInstance != null ? PlayerInstance : this;
-            transform.position = playerState.respawnPoint;
         }
 
         private void Start()
@@ -66,14 +65,5 @@ namespace Game
             transform.localScale = scale;
         }
 
-        public void SetSpawnpoint(Vector2 spawnpoint)
-        {
-            playerState.respawnPoint = spawnpoint;
-        }
-
-        private void Die()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 }

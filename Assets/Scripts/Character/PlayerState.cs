@@ -22,8 +22,5 @@ namespace Game
         [Space(15)]
         [Header("Hacking")] 
         public AnimationCurve hackingProgression;
-
-        public Vector2 respawnPoint;
-
     }
 }
