@@ -11,7 +11,7 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.CompareTag("Player"))
+            if (!collision.gameObject.CompareTag("Player"))
                 return;
 
             canvas.gameObject.SetActive(true);
@@ -19,7 +19,7 @@ namespace Game
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (!collision.CompareTag("Player"))
+            if (!collision.gameObject.CompareTag("Player"))
                 return;
 
             canvas.gameObject.SetActive(false);
