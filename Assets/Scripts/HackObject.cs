@@ -24,6 +24,7 @@ namespace Game
         {
             if (!IsHackable)
                 return;
+            
             StartCoroutine(Hack());
         }
 
@@ -42,6 +43,7 @@ namespace Game
 
         private IEnumerator Hack()
         {
+            
             slider.value = 0;
             fillImage.color = Color.red;
             while (!Player.PlayerInstance.inputHandler.InteractInput)

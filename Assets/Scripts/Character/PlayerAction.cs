@@ -53,8 +53,10 @@ namespace Game
         #region Hacking
         private void Hack(HackObject hackObject)
         {
+            
             canHack = false;
             hackObject.StartHacking();
+
             StartCoroutine(CooldownHacking(0.1f));
         }
 
@@ -70,12 +72,18 @@ namespace Game
                 return;
 
             if (collision.TryGetComponent(out HackObject hackObject))
+            {
+                Player.PlayerInstance.animatorHandler.HackAnim(canHack);
                 Hack(hackObject);
+            }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HackObject hackObject))
+            {
+                Player.PlayerInstance.animatorHandler.HackAnim(false);
                 hackObject.AbortHacking();
+            }
         }
         #endregion
 

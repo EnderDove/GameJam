@@ -22,6 +22,11 @@ namespace Game
             animator.SetTrigger("Attack");
         }
 
+        public void HackAnim(bool canHack)
+        {
+            animator.SetBool("IsHacking", canHack);
+        }
+
         public void RunAnim(float speed)
         {
             animator.SetFloat("Speed", Mathf.Abs(speed));

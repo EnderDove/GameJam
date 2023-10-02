@@ -14,9 +14,7 @@ namespace Game
         [SerializeField] private GameObject groundChecker;
         [SerializeField] private LayerMask whatIsGround;
 
-        // TEST
-        public TMP_Text txt;
-        // END TEST
+  
 
         private float onGroundRadius = 0.25f;
 
@@ -36,12 +34,7 @@ namespace Game
 
             float speedDif = targetSpeed - playerBody.velocity.x;
             float movement = speedDif * accelRate;
-            
-            Debug.Log($"accelRate: {accelRate} | speedDif: {speedDif} | movement: {movement}"
-                );
 
-
-            txt.SetText($"SPEED: {Mathf.Abs(movement)}");
             Player.PlayerInstance.animatorHandler.RunAnim(Mathf.Abs(movement));
             playerBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }

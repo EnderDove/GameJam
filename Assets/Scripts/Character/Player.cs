@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -12,11 +13,13 @@ namespace Game
         public static Player PlayerInstance;
 
         [SerializeField] public PlayerState playerState;
+        [SerializeField] public TMP_Text killsCounterTxt;
+
         public InputHandler inputHandler { get; private set; }
         private PlayerAction playerAction;
         private PlayerMovement playerMovement;
         public AnimatorHandler animatorHandler;
-
+        public int killsCount = 0;
 
         private bool isFacingRight = true;
 
@@ -44,6 +47,14 @@ namespace Game
 
         private void FixedUpdate()
         {
+            killsCounterTxt.SetText($"Побежденные вирусы: {killsCount} / 16");
+            if(killsCount == 16)
+            {
+                
+               SceneManager.LoadScene(2);
+                
+            }
+
             if (inputHandler.MovementInput.x != 0)
             {
                 CheckFaceDirection(inputHandler.MovementInput.x > 0);

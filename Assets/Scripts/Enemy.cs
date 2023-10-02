@@ -35,6 +35,7 @@ namespace Game
         private void Die()
         {
             gameObject.SetActive(false);
+            Player.PlayerInstance.killsCount += 1;
         }
 
         public abstract void Patrol();
