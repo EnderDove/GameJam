@@ -71,7 +71,7 @@ namespace Game
             playerState.respawnPoint = spawnpoint;
         }
 
-        public void Die()
+        private void Die()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
