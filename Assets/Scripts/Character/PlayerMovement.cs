@@ -1,6 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -12,6 +13,11 @@ namespace Game
         Rigidbody2D playerBody;
         [SerializeField] private GameObject groundChecker;
         [SerializeField] private LayerMask whatIsGround;
+
+        // TEST
+        public TMP_Text txt;
+        // END TEST
+
         private float onGroundRadius = 0.25f;
 
         private void Awake()
@@ -20,17 +26,23 @@ namespace Game
         }
 
         // Run
-        public void HandleMovement(Vector2 movementInput, float deltaTime)
+        public void HandleMovement(Vector2 movementInput)
         {
             float targetSpeed = movementInput.x * Player.PlayerInstance.playerState.runMaxSpeed;
-            targetSpeed = Mathf.Lerp(movementInput.x, targetSpeed, 1 / deltaTime);
+            targetSpeed = Mathf.Lerp(movementInput.x, targetSpeed, 1 / Time.fixedDeltaTime);
 
             float accelRate;
             accelRate = (Mathf.Abs(targetSpeed)) > 0.01f ? Player.PlayerInstance.playerState.runAccelAmount : Player.PlayerInstance.playerState.runDeccelAmount;
 
             float speedDif = targetSpeed - playerBody.velocity.x;
             float movement = speedDif * accelRate;
-            Player.PlayerInstance.animatorHandler.RunAnim(movement);
+            
+            Debug.Log($"accelRate: {accelRate} | speedDif: {speedDif} | movement: {movement}"
+                );
+
+
+            txt.SetText($"SPEED: {Mathf.Abs(movement)}");
+            Player.PlayerInstance.animatorHandler.RunAnim(Mathf.Abs(movement));
             playerBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
 
@@ -53,10 +65,11 @@ namespace Game
                 return;
             }
 
-            Player.PlayerInstance.animatorHandler.JumpAnim(canJump);
+            
             StartCoroutine(Jump());
             canJump = false;
             onAir = true;
+            Player.PlayerInstance.animatorHandler.JumpAnim(onAir);
         }
 
         private IEnumerator Jump()

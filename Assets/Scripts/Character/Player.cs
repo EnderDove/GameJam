@@ -38,12 +38,17 @@ namespace Game
         private void Update()
         {
             inputHandler.UpdateInputValues();
+            
+            playerMovement.HandleJumping(inputHandler.JumpInput);
+        }
+
+        private void FixedUpdate()
+        {
             if (inputHandler.MovementInput.x != 0)
             {
                 CheckFaceDirection(inputHandler.MovementInput.x > 0);
             }
-            playerMovement.HandleMovement(inputHandler.MovementInput, Time.deltaTime);
-            playerMovement.HandleJumping(inputHandler.JumpInput);
+            playerMovement.HandleMovement(inputHandler.MovementInput);
         }
 
         public void CheckFaceDirection(bool isMovingRight)

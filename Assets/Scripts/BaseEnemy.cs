@@ -18,7 +18,6 @@ namespace Game
 
         public override void Patrol()
         {
-            Debug.Log(CheckGround());
             if (!CheckGround() || CheckWall())
             {
                 Turn();

@@ -20,7 +20,6 @@ namespace Game
                 return;
             healthValue -= damage;
             animator.SetTrigger("Dmg");
-            Debug.Log(healthValue);
             if (healthValue < 0)
             {
                 healthValue = 0;

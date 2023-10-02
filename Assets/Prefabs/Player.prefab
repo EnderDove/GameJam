@@ -105,7 +105,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5712199577352926788}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 339c2998b16246f4eb3f46daf4c462c6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5712199577352926788}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 339c2998b16246f4eb3f46daf4c462c6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 539ca3c0bcce65c4fb0ad52610513795, type: 2}
-  animatorHandler: {fileID: 0}
+  animatorHandler: {fileID: 31389872678064142}
 --- !u!95 &971264516089604772
 Animator:
   serializedVersion: 5
@@ -423,8 +423,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.005949974, y: -0.0065500736, z: 0}
-    m_Extent: {x: 2.83765, y: 3.94805, z: 0}
+    m_Center: {x: 0.004600048, y: -0.00049996376, z: 0}
+    m_Extent: {x: 2.8344, y: 3.9528, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
